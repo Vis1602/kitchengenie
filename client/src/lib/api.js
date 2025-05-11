@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Axios instance
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://kitchengenie.onrender.com/api",
   withCredentials: true, // Include cookies in requests
 });
 
