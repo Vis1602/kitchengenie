@@ -7,12 +7,12 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const app = express();
-
+app.set("trust proxy", 1);
 // Middleware
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Vite default port
+    origin: "https://kitchengenie-five.vercel.app", // Vite default port
     credentials: true,
   })
 );

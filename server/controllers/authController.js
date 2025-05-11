@@ -28,7 +28,7 @@ const register = async (req, res) => {
 
     if (user) {
       const token = generateToken(user._id);
-      res.cookie("jwt", token, {
+      res.cookie("token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
@@ -64,7 +64,7 @@ const login = async (req, res) => {
 
     // Generate token
     const token = generateToken(user._id);
-    res.cookie("jwt", token, {
+    res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
@@ -82,7 +82,7 @@ const login = async (req, res) => {
 
 // Logout user
 const logout = (req, res) => {
-  res.cookie("jwt", "", {
+  res.cookie("token", "", {
     httpOnly: true,
     expires: new Date(0),
   });
